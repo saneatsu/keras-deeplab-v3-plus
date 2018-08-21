@@ -26,6 +26,16 @@ Results are still good
     <img src="imgs/my_seg_results3_OS16.png" width=600></br>
 </p>
 
+### Description of directory
+|dir|description|
+|:--|:--|
+|video_xx|Original videos|
+|frame_xx|Just divide video to frame(1920x1920)|
+|mask|Resize and mask for semantic segmentation(512x512)|
+|image_xx|Frame(or Mask) + Background image|
+|train|Augmented image for training(257x257)|
+|valid|Image divided from video for validation(257x257)|
+
 ### How to get labels
 Model will return tensor of shape (batch_size,height,width,classes). To obtain labels, you need to apply argmax to logits at exit layer. Example of predicting on image1.jpg:  
 
