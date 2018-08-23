@@ -2,8 +2,11 @@ models/
 weights/
 __pycache__
 test.ipynb
-mask/
-image/
+bg/
 frame_train/
 frame_train.zip
+image/
+image_train/
+mask/
 video.zip
+

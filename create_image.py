@@ -34,7 +34,7 @@ def overlay_image(frame, mask, bg):
     _, mask = cv2.threshold(mask, thresh=127,  maxval=255, type=cv2.THRESH_BINARY)
     
     mask_inv = cv2.bitwise_not(mask) # inverse of mask
-            
+    
     blackout_bg = roi*(mask == 0)
     without_white = frame*(mask == 255)
 
@@ -91,8 +91,6 @@ if __name__ == '__main__':
         print(hand_sign)
         # Loop for each filepath list
         for mask_path, frame_path in zip(mask_path_list, frame_path_list):
-            print('--------------------------')
-            # Load mask image and frame image
             mask = cv2.imread(mask_path)   # (512, 512, 3)
             frame = cv2.imread(frame_path) # (1920, 1920, 3)
             frame = cv2.resize(frame, (512, 512))
@@ -108,10 +106,7 @@ if __name__ == '__main__':
 
                 # Overlay 'img_bgs' and 'frame'
                 for img_bg in img_bgs:
-                    print('----------------')
                     bg = cv2.imread(img_bg)
-                    # bg = cv2.resize(bg, (257, 257))
-
                     image = overlay_image(frame, mask, bg)
 
                     # Rename file name
@@ -122,8 +117,6 @@ if __name__ == '__main__':
                              f_name[2]+'_'+ \
                              bg_name+'_'+ \
                              f_name[3]
-#                     save_fpath = const.image_train_dir.format(hand_sign)+f_name
-#                     print(save_fpath)
+                    save_fpath = const.image_train_dir.format(hand_sign)+f_name
 
-#                     # Save
-#                     cv2.imwrite(save_dir, image)
+                    cv2.imwrite(save_fpath, image)
