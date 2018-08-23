@@ -10,7 +10,7 @@ from keras.applications.mobilenetv2 import preprocess_input
 
 
 if __name__ == '__main__':
-    # Read images which are divided from video
+    # Load images from 'frame_train' dir
     img_dic = {}
         for hand_sign in const.hand_signs:
         imgs_fpath = glob.glob(os.path.join(const.frame_train_dir.format(hand_sign), "*.jpg"))

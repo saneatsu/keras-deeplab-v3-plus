@@ -28,6 +28,10 @@ train_height = 257
 train_dir = './train/{}/'
 valid_dir = './valid/{}/'
 
+# Background image dir
+bgs_num = 5
+bg_dir = './bg/'
+
 
 def check_folder_existence(dir):
     """
