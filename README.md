@@ -31,8 +31,8 @@ Results are still good
 |:--|:--|
 |video_xx|Original videos|
 |frame_xx|Just divide video to frame(1920x1920)|
-|mask|Resize and mask for semantic segmentation(512x512)|
-|image_xx|Frame(or Mask) + Background image|
+|mask|Resize and mask for semantic segmentation(512x512). Created by create_mask.py|
+|image_xx|Frame(or Mask) + Background image(257x257). Created by create_image.py|
 |train|Augmented image for training(257x257)|
 |valid|Image divided from video for validation(257x257)|
 

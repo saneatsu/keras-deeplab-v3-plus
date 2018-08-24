@@ -2,35 +2,38 @@ import os
 import shutil
 
 
-hand_signs = ('R0_L0', 'R0_L1', 'R1_L0', 'R1_L1') # 0:gu 1:pa 2: chi　
+HAND_SIGNS = ('R0_L0', 'R0_L1', 'R1_L0', 'R1_L1') # 0:gu 1:pa 2: chi　
 
 # Video: Original videos
-video_train_dir = './video_train/{}/'
-video_valid_dir = './video_valid/{}/'
+VIDEO_TRAIN_DIR = './video_train/{}/'
+VIDEO_VALID_DIR = './video_valid/{}/'
 
 # Frame: Just divide video to frame
-frame_train_dir = './frame_train/{}/'
-frame_valid_dir = './frame_valid/{}/'
+# out=1920x1920
+FRAME_TRAIN_DIR = './frame_train/{}/'
+FRAME_VALID_DIR = './frame_valid/{}/'
 
-# Mask: Resize and mask for semantic segmentation  
-mask_width  = 512
-mask_height = 512
-mask_dir = './mask/{}/'
-mask_save_dir = './mask/{}/{}'
+# Mask: Resize and mask for semantic segmentation
+# create_mask.py(out=512x512)
+MASK_WIDTH  = 512
+MASK_HEIGHT = 512
+MASK_DIR = './mask/{}/'
+MASK_SAVE_DIR = './mask/{}/{}'
 
-# Image: Frame(or Mask) + Background image
-image_train_dir = './image_train/{}/'
-image_valid_dir = './image_valid/{}/'
+# Image: Frame(or Mask) + Background image(
+# create_image.py(out=257x257)
+IMAGE_TRAIN_DIR = './image_train/{}/'
+IMAGE_VALID_DIR = './image_valid/{}/'
 
 # Train, Valid: Image + Augmentation
-train_width  = 257
-train_height = 257
-train_dir = './train/{}/'
-valid_dir = './valid/{}/'
+TRAIN_WIDTH  = 257
+TRAIN_HEIGHT = 257
+TRAIN_DIR = './train/{}/'
+VALID_DIR = './valid/{}/'
 
 # Background image dir
-bgs_num = 5
-bg_dir = './bg/'
+BGS_NUM = 5
+BG_DIR = './bg/'
 
 
 def check_folder_existence(dir):

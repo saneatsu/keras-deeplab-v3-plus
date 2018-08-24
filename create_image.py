@@ -55,8 +55,7 @@ def load_bg(num):
     bg_img : list
         background image's list
     """
-    dir = const.bg_dir
-    all_bg_img = glob.glob(os.path.join(dir, "*.jpg"))
+    all_bg_img = glob.glob(os.path.join(const.BG_DIR, "*.jpg"))
     bg_img = random.sample(all_bg_img, num)
 
     return bg_img
@@ -67,12 +66,12 @@ if __name__ == '__main__':
     mask_dic = {}
     frame_dic = {}
     print('Load image and create dir')
-    for hand_sign in const.hand_signs:
+    for hand_sign in const.HAND_SIGNS:
         print(hand_sign)
-        const.check_folder_existence(const.image_train_dir.format(hand_sign))
+        const.check_folder_existence(const.IMAGE_TRAIN_DIR.format(hand_sign))
 
-        mask_fpath = glob.glob(os.path.join(const.mask_dir.format(hand_sign), "*.jpg"))
-        frame_fpath = glob.glob(os.path.join(const.frame_train_dir.format(hand_sign), "*.jpg"))
+        mask_fpath = glob.glob(os.path.join(const.MASK_DIR.format(hand_sign), "*.jpg"))
+        frame_fpath = glob.glob(os.path.join(const.FRAME_TRAIN_DIR.format(hand_sign), "*.jpg"))
         mask_dic.update({ hand_sign: mask_fpath })
         frame_dic.update({ hand_sign: frame_fpath })
 
@@ -108,6 +107,7 @@ if __name__ == '__main__':
                 for img_bg in img_bgs:
                     bg = cv2.imread(img_bg)
                     image = overlay_image(frame, mask, bg)
+                    image = cv2.resize(image, (257, 257))
 
                     # Rename file name
                     bg_name = img_bg.split('/')[2].split('.')[0]
